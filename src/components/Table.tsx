@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Table = () => {
+type Props = {
+  items: {
+    id: 'string';
+    name: 'string';
+  };
+};
+const Table = ({ items }: Props) => {
   return (
     <div className="w-3/6 my-4">
       <h1 className="hidden">Table</h1>
@@ -13,8 +19,8 @@ const Table = () => {
         </thead>
         <tbody className="border-2  p-2">
           <tr>
-            <td className="border-2  p-2">101</td>
-            <td className="border-2  p-2">Interview</td>
+            <td className="border-2  p-2">{items.id}</td>
+            <td className="border-2  p-2">{items.name}</td>
           </tr>
         </tbody>
       </table>
