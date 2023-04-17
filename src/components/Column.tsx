@@ -15,11 +15,11 @@ type Props = {
 };
 const Column = ({ columnId, column, tasks }: Props) => {
   return (
-    <div key={column.id} className="bg-white/30 border rounded-md p-4 shadow-md h-96 w-96 my-4">
+    <div key={column.id} className="bg-white/30 border rounded-md p-4 shadow-md my-4 xl:m-4">
       <h2>{column.title}</h2>
       <Droppable droppableId={column.id}>
         {(provided) => (
-          <ul ref={provided.innerRef} {...provided.droppableProps}>
+          <ul className="h-96 w-96" ref={provided.innerRef} {...provided.droppableProps}>
             {tasks.map((task, index) => (
               <Draggable key={task.id} draggableId={task.id} index={index}>
                 {(provided) => (

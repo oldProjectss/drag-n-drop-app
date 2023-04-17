@@ -2,13 +2,15 @@ import React from 'react';
 
 type Props = {
   items: {
-    id: 'string';
-    name: 'string';
+    [key: string]: {
+      id: null | string;
+      content: null | string;
+    };
   };
 };
 const Table = ({ items }: Props) => {
   return (
-    <div className="w-3/6 my-4">
+    <div className="w-full my-4">
       <h1 className="hidden">Table</h1>
       <table className="w-full">
         <thead>
@@ -18,10 +20,12 @@ const Table = ({ items }: Props) => {
           </tr>
         </thead>
         <tbody className="border-2  p-2">
-          <tr>
-            <td className="border-2  p-2">{items.id}</td>
-            <td className="border-2  p-2">{items.name}</td>
-          </tr>
+          {Object.values(items).map((item) => (
+            <tr key={item.id}>
+              <td className="border-2  p-2">{item.id}</td>
+              <td className="border-2  p-2">{item.content}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
