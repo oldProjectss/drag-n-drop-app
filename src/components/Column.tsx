@@ -21,7 +21,7 @@ const Column = ({ columnId, column, tasks }: Props) => {
         {(provided) => (
           <ul ref={provided.innerRef} {...provided.droppableProps}>
             {tasks.map((task, index) => (
-              <Draggable key={index} draggableId={task.id} index={index}>
+              <Draggable key={task.id} draggableId={task.id} index={index}>
                 {(provided) => (
                   <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="border-2 p-2 m-2 rounded-md active:bg-gray-100 bg-gray-200/70 cursor-move">
                     {task.content}
